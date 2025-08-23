@@ -1,49 +1,68 @@
+
 # Laravel-React-Data-Table
 
-Laravel React Starter Kit with TanStack Table (Pagination & Sorting).
+Starter kit para construir aplicaciones modernas con Laravel y React, integrando TanStack Table para paginación y ordenamiento eficiente de datos. Utiliza Tailwind CSS y Shadcn/ui para una interfaz atractiva y funcional.
 
-## Features
-- Integration between Laravel and React, Tailwind CSS, and Shadcn/ui.
+TanStack Table es una librería avanzada para la gestión de tablas en React, permitiendo paginación, ordenamiento y filtrado de manera flexible y rápida.
 
-## Requirements
-- PHP >= 8.2 or higher
+## Características
+- Integración entre Laravel y React
+- Tailwind CSS y Shadcn/ui para UI moderna
+- TanStack Table para tablas avanzadas (paginación y ordenamiento)
+
+## Requisitos
+- PHP >= 8.2
 - Composer
-- Node.js >= 14.x
-- npm or yarn
+- Node.js >= 18.x
+- npm o yarn
 
-## Installation
+## Instalación
 
-1. Clone the repository:
+1. Clona el repositorio:
     ```bash
     git clone https://github.com/davidaustria/laravel-react-data-table.git
     cd laravel-react-data-table
     ```
 
-2. Install backend dependencies:
+2. Instala las dependencias de backend:
     ```bash
     composer install
     ```
 
-3. Set up the `.env` file:
+3. Configura el archivo `.env`:
     ```bash
     cp .env.example .env
     php artisan key:generate
     ```
 
-4. Configure your database in the `.env` file and run migrations:
+4. Configura tu base de datos en `.env` y ejecuta las migraciones:
     ```bash
     php artisan migrate
     ```
 
-5. Install frontend dependencies:
+5. Instala las dependencias de frontend:
     ```bash
     npm install
     ```
 
-6. Build the frontend and backend assets and start the development server:
+6. Compila los assets y ejecuta el servidor de desarrollo:
     ```bash
-    composer run dev
+    npm run dev
     ```
 
-## Usage
-- Access the application at `http://localhost:8000`.
+7. Inicia el servidor de Laravel:
+    ```bash
+    php artisan serve
+    ```
+
+## Uso
+- Accede a la aplicación en `http://localhost:8000`.
+
+## Documentación
+- Convenciones de componentes: [docs/component-conventions.md](docs/component-conventions.md)
+
+## Contribución
+Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull request para sugerencias y mejoras.
+
+## Licencia
+Este proyecto está bajo la licencia MIT.
