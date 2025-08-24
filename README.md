@@ -37,7 +37,7 @@ TanStack Table es una librería avanzada para la gestión de tablas en React, pe
 
 4. Configura tu base de datos en `.env` y ejecuta las migraciones:
     ```bash
-    php artisan migrate
+    php artisan migrate:fresh --seed
     ```
 
 5. Instala las dependencias de frontend:
@@ -57,6 +57,9 @@ TanStack Table es una librería avanzada para la gestión de tablas en React, pe
 
 ## Uso
 - Accede a la aplicación en `http://localhost:8000`.
+
+Email: admin@example.com
+Password: password
 
 ## Documentación
 - Convenciones de componentes: [docs/component-conventions.md](docs/component-conventions.md)
