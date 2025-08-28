@@ -9,6 +9,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { router } from '@inertiajs/react';
 import { ColumnDef } from '@tanstack/react-table';
 import { ArrowUpDown, MoreHorizontal } from 'lucide-react';
 
@@ -29,7 +30,17 @@ export const columns: ColumnDef<User>[] = [
         accessorKey: 'name',
         header: ({ column }) => {
             return (
-                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
+                <Button
+                    variant="ghost"
+                    onClick={function (): void {
+                        const page = route().params.page ?? '';
+                        const col = 'name';
+                        let dir = route().params.dir ?? '';
+                        dir = dir === 'asc' ? 'desc' : 'asc';
+                        const url = route('users.index') + `?page=${page}&col=${col}&dir=${dir}`;
+                        router.visit(url);
+                    }}
+                >
                     Name
                     <ArrowUpDown className="ml-2 h-4 w-4" />
                 </Button>

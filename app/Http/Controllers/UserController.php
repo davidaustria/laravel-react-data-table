@@ -10,7 +10,22 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(10);
+        $col = request('col');
+        $dir = request('dir');
+        if ($col && $dir) {
+            $users = User::orderBy($col, $dir)
+                ->paginate(10)
+                ->appends([
+                    'col' => $col,
+                    'dir' => $dir
+                ]);
+        } else {
+            $users = User::paginate(10)
+                ->appends([
+                    'col' => $col,
+                    'dir' => $dir
+                ]);
+        }
         return Inertia::render('users/Index', [
             'users' => $users
         ]);
