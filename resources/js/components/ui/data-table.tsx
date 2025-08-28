@@ -17,15 +17,20 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
+import { router } from "@inertiajs/react"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  nextPageUrl: string | null | undefined
+  prevPageUrl: string | null | undefined
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  nextPageUrl,
+  prevPageUrl
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -84,16 +89,16 @@ export function DataTable<TData, TValue>({
         <Button
           variant="outline"
           size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
+          onClick={() => prevPageUrl ? router.visit(prevPageUrl) : null}
+          disabled={!prevPageUrl}
         >
           Previous
         </Button>
         <Button
           variant="outline"
           size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
+          onClick={() => nextPageUrl ? router.visit(nextPageUrl) : null}
+          disabled={!nextPageUrl}
         >
           Next
         </Button>
